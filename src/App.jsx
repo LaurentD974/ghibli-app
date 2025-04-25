@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import FilmList from './components/FilmList';
-import './App.css';
 
 function App() {
   const url = "https://ghibliapi.vercel.app/films"
@@ -13,11 +12,12 @@ const getFilms = async () => {
     const data = await request.json();
     setFilms(data.results);
 };
-console.log(films);
+
 // useEffect pour charger les films au démarrage (à compléter)
 useEffect(() => {
   getFilms();
 }, []);
+console.log(films);
 
 return (
 <div className="App">
