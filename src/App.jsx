@@ -1,28 +1,31 @@
 import { useState, useEffect } from "react";
-// import Navbar from "./components/Navbar";
-// import FilmList from "./components/FilmList";
+import Navbar from "./components/Navbar";
+import FilmList from "./components/FilmList";
+import "./App.css";
 
 function App() {
-  const url = "https://ghibliapi.vercel.app/films?limit=50";
   const [films, setFilms] = useState([]);
 
-  // Fonction pour récupérer les films (à compléter)
+  // Fonction pour récupérer les films
   const getFilms = async () => {
-    const request = await fetch(url);
-    const data = await request.json();
+    const response = await fetch("https://ghibliapi.vercel.app/films");
+    const data = await response.json();
     setFilms(data);
   };
 
-  // useEffect pour charger les films au démarrage (à compléter)
+  // Charger les films au démarrage
   useEffect(() => {
     getFilms();
   }, []);
 
   return (
     <div className="App">
-      {/* <Navbar /> */}
-      <main>{/* <FilmList films={films} /> */}</main>
+      <Navbar />
+      <main>
+        <FilmList films={films} />
+      </main>
     </div>
   );
 }
+
 export default App;
