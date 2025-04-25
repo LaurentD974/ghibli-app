@@ -4,16 +4,19 @@ import FilmList from './components/FilmList';
 import './App.css';
 
 function App() {
+  const url = "https://ghibliapi.vercel.app/films"
 const [films, setFilms] = useState([]);
 
 // Fonction pour récupérer les films (à compléter)
 const getFilms = async () => {
-// Votre code ici
+  const request = await fetch(url);
+    const data = await request.json();
+    setFilms(data.results);
 };
-
+console.log(films);
 // useEffect pour charger les films au démarrage (à compléter)
 useEffect(() => {
-// Votre code ici
+  getFilms();
 }, []);
 
 return (
