@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import FilmList from "./components/FilmList";
-import "./App.css";
+import "./index.css";
 
 function App() {
   const [films, setFilms] = useState([]);
